@@ -32,18 +32,40 @@
 
 				var z = parseInt(x) + parseInt(y);
 
+				var q = String(changeQuarter());
+
 				document.getElementById("scorea").value = z;
 				document.getElementById("livescorea").innerHTML = z;
 				document.getElementById("livesa").innerHTML = z;
 
-				// var q1 = changeQuarter();
+				var a2 = document.getElementById("liveq1a").innerHTML;
+				var q2 = parseInt(z) - parseInt(a2);
 
-				// if (q1 == "Q1"){
-				// 	document.getElementById("liveq1a").innerHTML = z;
-				// }
-				// else{
-				// 	document.getElementById("liveq2a").innerHTML = z;
-				// }
+				var a3 = document.getElementById("liveq2a").innerHTML;
+				var q3 = parseInt(q2) - parseInt(a3);
+
+				var a4 = document.getElementById("liveq3a").innerHTML;
+				var q4 = parseInt(q3) - parseInt(a4);
+
+				var aot = document.getElementById("liveq4a").innerHTML;
+				var ot = parseInt(q4) - parseInt(aot);
+
+				if (q == "Q1"){
+					document.getElementById("liveq1a").innerHTML = z;
+				}
+
+				else if (q == "Q2"){
+					document.getElementById("liveq2a").innerHTML = q2;
+				}
+				else if (q == "Q3"){
+					document.getElementById("liveq3a").innerHTML = q3;
+				}
+				else if (q == "Q4"){
+					document.getElementById("liveq4a").innerHTML = q4;
+				}
+				else if (q == "OT"){
+					document.getElementById("liveota").innerHTML = ot;
+				}
 
 			}
 			else{
@@ -52,9 +74,39 @@
 
 				var z = parseInt(x) + parseInt(y);
 
+				var q = String(changeQuarter());
+
 				document.getElementById("scoreb").value = z;
 				document.getElementById("livescoreb").innerHTML = z;
 				document.getElementById("livesb").innerHTML = z;
+
+				var b2 = document.getElementById("liveq1b").innerHTML;
+				var q2 = parseInt(z) - parseInt(b2);
+
+				var b3 = document.getElementById("liveq2b").innerHTML;
+				var q3 = parseInt(q2) - parseInt(b3);
+
+				var b4 = document.getElementById("liveq3b").innerHTML;
+				var q4 = parseInt(q3) - parseInt(b4);
+
+				var bot = document.getElementById("liveq4b").innerHTML;
+				var ot = parseInt(q4) - parseInt(bot);
+
+				if (q == "Q1"){
+					document.getElementById("liveq1b").innerHTML = z;
+				}
+				else if (q == "Q2"){
+					document.getElementById("liveq2b").innerHTML = q2;
+				}
+				else if (q == "Q3"){
+					document.getElementById("liveq3b").innerHTML = q3;
+				}
+				else if (q == "Q4"){
+					document.getElementById("liveq4b").innerHTML = q4;
+				}
+				else if (q == "OT"){
+					document.getElementById("liveotb").innerHTML = ot;
+				}
 
 			}
 		}
@@ -93,6 +145,7 @@
 			var x = document.getElementById("quarter").value;
 
 			document.getElementById("livequarter").innerHTML = x;
+			return x;
 		}
 
 		function timePlay(){
@@ -157,6 +210,11 @@
 	<form method="POST">
 		<h4 id="title" align="center">BASKETBALL SCOREBOARD SYSTEM</h4>
 		<table align="center">
+			<tr>
+				<td>match id : </td>
+				<td><input type="text" name="matchid" id="matchid"></td>
+				<td><input type="button" name="getmatchid" id="getmatchid" value="GET"></td>
+			</tr>
 			<tr>
 				<th>TEAM NAME</th>
 				<th>SCORE</th>
@@ -246,66 +304,68 @@
 	</form>
 	<br>
 	<br>
-<!-- 	<h1>=================================================</h1> -->
-		<table align="center">
-			<tr align="center">
-				<th></th>
-				<th><h3>LIGA ANACONDA</h3></th>
-				<th></th>
-			</tr>
-			<tr>	
-				<th><h1 id="liveteama">TEAM A</h1>
-				<th><h3>vs</h3></th>
-				<th><h1 id="liveteamb">TEAM B</h1></h1>
-			</tr>
-			<tr align="center">
-				<td></td>
-				<td><h3 id="livequarter">-</h3></td>
-				<td></td>
-			</tr>
-			<tr align="center">
-				<td></td>
-				<td><h4 id="livetimer">-</h4></td>
-				<td></td>
-			</tr>
-			<tr align="center">
-				<td><h1 class="score" id="livescorea">0</h1></td>
-				<td></td>
-				<td><h1 class="score" id="livescoreb">0</h1></td>
-			</tr>
-			<tr align="center">
-				<td ><h4 id="livebonusa"></h4></td>
-				<td></td>
-				<td ><h4 id="livebonusb"></h4></td>
-			</tr>
+		<table class="tablelivequarter" align="center">
+			<td>
+				<table align="center">
+					<tr align="center">
+						<th></th>
+						<th><h3>LIGA ANACONDA</h3></th>
+						<th></th>
+					</tr>
+					<tr>	
+						<th><h1 id="liveteama">TEAM A</h1>
+						<th><h3>vs</h3></th>
+						<th><h1 id="liveteamb">TEAM B</h1></h1>
+					</tr>
+					<tr align="center">
+						<td></td>
+						<td><h3 id="livequarter">-</h3></td>
+						<td></td>
+					</tr>
+					<tr align="center">
+						<td></td>
+						<td><h4 id="livetimer">-</h4></td>
+						<td></td>
+					</tr>
+					<tr align="center">
+						<td><h1 class="score" id="livescorea">0</h1></td>
+						<td></td>
+						<td><h1 class="score" id="livescoreb">0</h1></td>
+					</tr>
+					<tr align="center">
+						<td ><h4 id="livebonusa"></h4></td>
+						<td></td>
+						<td ><h4 id="livebonusb"></h4></td>
+					</tr>
+				</table>
+				<table align="center" class="tablelivequarter">
+					<tr class="tablelivequarter">
+						<th>S</th>
+						<th>Q1</th>
+						<th>Q2</th>
+						<th>Q3</th>
+						<th>Q4</th>
+						<th>OT</th>
+					</tr>
+					<tr class="tablelivequarter">
+						<td id="livesa">0</td>
+						<td id="liveq1a">0</td>
+						<td id="liveq2a">0</td>
+						<td id="liveq3a">0</td>
+						<td id="liveq4a">0</td>
+						<td id="liveota">0</td>
+					</tr>
+					<tr class="tablelivequarter">
+						<td id="livesb">0</td>
+						<td id="liveq1b">0</td>
+						<td id="liveq2b">0</td>
+						<td id="liveq3b">0</td>
+						<td id="liveq4b">0</td>
+						<td id="liveotb">0</td>
+					</tr>
+				</table>
+			</td>
 		</table>
-<!-- 		<table align="center" class="tablelivequarter">
-			<tr class="tablelivequarter">
-				<th>S</th>
-				<th>Q1</th>
-				<th>Q2</th>
-				<th>Q3</th>
-				<th>Q4</th>
-				<th>OT</th>
-			</tr>
-			<tr class="tablelivequarter">
-				<td id="livesa">0</td>
-				<td id="liveq1a">0</td>
-				<td id="liveq2a">0</td>
-				<td id="liveq3a">0</td>
-				<td id="liveq4a">0</td>
-				<td id="liveota">0</td>
-			</tr>
-			<tr class="tablelivequarter">
-				<td id="livesb">0</td>
-				<td id="liveq1b">0</td>
-				<td id="liveq2b">0</td>
-				<td id="liveq3b">0</td>
-				<td id="liveq4b">0</td>
-				<td id="liveotb">0</td>
-			</tr>
-		</table>
-	<h1>=================================================</h1> -->
 </body>
 </html>
 					
